@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export_range(0.0, 1.0) var friction = 0.1
 @export_range(0.0 , 1.0) var acceleration = 0.25
 
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+
 var grav: float = 980
 var move: Vector2
 
@@ -17,6 +19,8 @@ func _physics_process(delta: float) -> void:
 	else: 
 		velocity.y += (grav*1.5) * delta
 	if move.x != 0:
+		if move.x < 0: $Sprite2D.flip_h = true
+		else: $Sprite2D.flip_h = false
 		velocity.x = lerp(velocity.x, move.x * move_speed, acceleration)
 	else:
 		velocity.x = lerp(move.x, 0.0, friction)
