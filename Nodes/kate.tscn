@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://le65xrix2pa6"]
+[gd_scene load_steps=4 format=3 uid="uid://le65xrix2pa6"]
 
+[ext_resource type="Script" uid="uid://cditd3blqn4an" path="res://Scripts/PlayerController.gd" id="1_faffv"]
 [ext_resource type="Texture2D" uid="uid://ph5hwhyjvw6c" path="res://Sprites/Pre-made NPCs/Female.png" id="1_uylm6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_faffv"]
 size = Vector2(8, 8)
 
 [node name="Kate" type="CharacterBody2D"]
+script = ExtResource("1_faffv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uylm6")
@@ -15,3 +17,6 @@ vframes = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_faffv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

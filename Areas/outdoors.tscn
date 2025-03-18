@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=4 uid="uid://dcxka7ad1e4sc"]
+
+[ext_resource type="PackedScene" uid="uid://le65xrix2pa6" path="res://Nodes/kate.tscn" id="1_b64ed"]
+[ext_resource type="Texture2D" uid="uid://c1meg17j5ienp" path="res://Sprites/PixelSpaces Free Pack.png" id="2_q5bt7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38e3l"]
+texture = ExtResource("2_q5bt7")
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 4, 8, 4, 8, 8, 0, 8)
+9:3/0 = 0
+9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 4, -8, 4, -8, 8, 0, 8)
+
+[sub_resource type="TileSet" id="TileSet_wf4pd"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_38e3l")
+
+[node name="Outdoors" type="Node2D"]
+
+[node name="Kate" parent="." instance=ExtResource("1_b64ed")]
+
+[node name="Ground" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wAAAAAIAAMAAAD//wAAAAAIAAMAAAAAAAAAAAAIAAMAAAABAAAAAAAIAAMAAAACAAAAAAAIAAMAAAADAAAAAAAIAAMAAAAEAAAAAAAIAAMAAAAFAAAAAAAIAAMAAAAGAAAAAAAIAAMAAAD9/wAAAAAIAAMAAAD8/wAAAAAHAAMAAAAHAAAAAAAJAAMAAAA=")
+tile_set = SubResource("TileSet_wf4pd")
